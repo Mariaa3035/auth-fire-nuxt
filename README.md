@@ -1,69 +1,73 @@
-# auth-app-nuxt
-
+# Auth Fire Nuxt
+A Nuxt.js application with Firebase authentication integration, featuring user registration, login, and session management.
+## Features
+- 🔐 User Authentication with Firebase
+  - Email/Password Sign Up
+  - Email/Password Sign In
+  - Automatic Session Management
+  - Protected Routes
+- ⚡ Auto Logout Timer
+- 🎨 Bootstrap Vue Integration
+- ✨ Form Validation with Vuelidate
+## Prerequisites
+- Node.js (v12 or higher)
+- NPM or Yarn
+- Firebase Account and Project
 ## Build Setup
-
 ```bash
-# install dependencies
-$ npm install
+# Install dependencies
+npm install
+# Serve with hot reload at localhost:3000
+npm run dev
+# Build for production and launch server
+npm run build
+npm run start
+# Generate static project
+npm run generate
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Project Structure
+auth-fire-nuxt/
+├── components/          # Vue components
+├── layouts/            # Page layouts
+├── middleware/         # Navigation guards
+│   ├── auth.js        # Authentication middleware
+│   └── guest.js       # Guest access middleware
+├── pages/             # Application views and routes
+│   ├── index.vue      # Home page
+│   ├── login.vue      # Login page
+│   ├── signup.vue     # Registration page
+│   └── dashboard.vue  # Protected dashboard
+├── plugins/           # Plugin configurations
+│   ├── firebase.js    # Firebase initialization
+│   ├── auth.js        # Auth state plugin
+│   └── vuelidate.js   # Form validation
+├── store/             # Vuex store modules
+│   └── auth.js        # Authentication store
+## Firebase Configuration
+1. Create a Firebase project in the [Firebase Console](https://console.firebase.google.com)
+2. Enable Email/Password authentication in the Authentication section
+3. Copy your Firebase configuration from Project Settings
+4. Update the configuration in `plugins/firebase.js`:
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+javascript
+const firebaseConfig = {
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id"
+## Authentication Features
+- **Sign Up**: New user registration with email and password
+- **Login**: User authentication with email and password
+- **Protected Routes**: Middleware-based route protection
+- **Auto Logout**: Automatic session timeout management
+- **Activity Tracking**: Session extension based on user activity
+## Development
+For detailed explanation on how things work, check out the [Nuxt.js docs](https://nuxtjs.org).
+## Security Notes
+- Firebase API keys are restricted by domain and can be safely included in client-side code
+- Session timeout is configurable in the auth store
+- All authentication state is managed through Vuex store
+## License
+[MIT License](LICENSE)# auth-fire-nuxt
