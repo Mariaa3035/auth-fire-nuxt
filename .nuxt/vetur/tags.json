@@ -1,0 +1,11 @@
+{
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "ProtectedComponent": {
+    "description": "Auto imported from components/ProtectedComponent.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  }
+}

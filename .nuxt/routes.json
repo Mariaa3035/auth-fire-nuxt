@@ -1,0 +1,30 @@
+[
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "C:\\\\Users\\\\Maryam\\\\auth-fire-nuxt\\\\pages\\\\dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "_name": "_3681915f"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\Maryam\\\\auth-fire-nuxt\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_0da93534"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "C:\\\\Users\\\\Maryam\\\\auth-fire-nuxt\\\\pages\\\\signup.vue",
+    "chunkName": "pages/signup",
+    "_name": "_18514346"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Maryam\\\\auth-fire-nuxt\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4401921d"
+  }
+]
