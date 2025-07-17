@@ -1,1 +1,17 @@
 ﻿node_modules
+gitignore
+# Node modules and dependencies
+node_modules/
+# Nuxt build output directories
+.nuxt/
+dist/
+# Environment files (keep .env.example for reference)
+.env*
+!.env.example
+# Logs and log files
+logs/
+*.log
+# OS-specific files
+.DS_Store
+# Firebase debug logs
+firebase-debug.log
