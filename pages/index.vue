@@ -1,25 +1,21 @@
-<!-- index page -->
 <template>
-  <b-container class="mt-5">
-    <b-row>
-      <b-col>
-        <h1 class="text-center">Welcome to the Auth App</h1>
-        <p v-if="user" class="text-center mt-4">
-          Hello, {{ user.email }}! You are logged in.
-        </p>
-        <p v-else class="text-center mt-4">
-          Please <nuxt-link to="/login">login</nuxt-link> or <nuxt-link to="/signup">sign up</nuxt-link> to continue.
-        </p>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div class="container mt-5">
+    <h1 class="mb-4">Welcome to Our App</h1>
+    <div v-if="!isAuthenticated">
+      <b-button variant="primary" to="/signin" class="mr-2">Sign In</b-button>
+      <b-button variant="success" to="/signup">Sign Up</b-button>
+    </div>
+    <div v-else>
+      <b-button variant="info" to="/dashboard">Go to Dashboard</b-button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   computed: {
-    user() {
-      return this.$store.state.auth.user
+    isAuthenticated() {
+      return this.$store.getters['auth/isAuthenticated']
     }
   }
 }

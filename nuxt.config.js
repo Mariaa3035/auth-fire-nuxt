@@ -1,48 +1,30 @@
 // nuxt.config.js
-export default {
-  ssr: false, // This is the new way to set SPA mode in Nuxt 2.15+
 
-  head: {
-    title: 'Auth App',
+export default {
+
+   head: {
+    title: 'Auth Fire Nuxt',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
   },
+plugins: [
 
-  css: ['bootstrap/dist/css/bootstrap.css'],
-
-  plugins: [
-    '~/plugins/firebase.js',
-    { src: '~/plugins/auth.js', mode: 'client' },
-    { src: '~/plugins/clearLogoutTimer.js', mode: 'client' },
-    { src: '~/plugins/bootstrap-vue.js', mode: 'client' },
-     { src: '~/plugins/vuelidate.js', mode: 'client' }
-  ],
-
-  components: true,
-
-  buildModules: [],
-
+  '~/plugins/bootstrap-vue.js',
+  '~/plugins/vuelidate.js',
+  { src: '~/plugins/clearLogoutTimer.js', mode: 'client' }
+],
+buildModules: [
+   
+  '@nuxtjs/dotenv',
+ ],
   modules: [
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
   ],
-
-  bootstrapVue: {
-    icons: true
-  },
-
-  axios: {
-    baseURL: '/'
-  },
-
-  build: {},
   
-
-  router: {
-    middleware: ['auth']
+  build: {
+   
   },
-   routes: './routes.js',
+
 }

@@ -13,14 +13,10 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_09afed7e from 'nuxt_plugin_plugin_09afed7e' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_c4744860 from 'nuxt_plugin_bootstrapvue_c4744860' // Source: .\\bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_axios_a79da2be from 'nuxt_plugin_axios_a79da2be' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_firebase_34d6f55a from 'nuxt_plugin_firebase_34d6f55a' // Source: ..\\plugins\\firebase.js (mode: 'all')
-import nuxt_plugin_auth_7f7561ce from 'nuxt_plugin_auth_7f7561ce' // Source: ..\\plugins\\auth.js (mode: 'client')
+import nuxt_plugin_axios_41c1817c from 'nuxt_plugin_axios_41c1817c' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_7a18ce66 from 'nuxt_plugin_bootstrapvue_7a18ce66' // Source: ..\\plugins\\bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ..\\plugins\\vuelidate.js (mode: 'all')
 import nuxt_plugin_clearLogoutTimer_8f42669a from 'nuxt_plugin_clearLogoutTimer_8f42669a' // Source: ..\\plugins\\clearLogoutTimer.js (mode: 'client')
-import nuxt_plugin_bootstrapvue_7a18ce66 from 'nuxt_plugin_bootstrapvue_7a18ce66' // Source: ..\\plugins\\bootstrap-vue.js (mode: 'client')
-import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ..\\plugins\\vuelidate.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -60,7 +56,7 @@ Object.defineProperty(Vue.prototype, '$nuxt', {
 
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
-const defaultTransition = {"name":"page","mode":"out-in","appear":true,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
+const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 const originalRegisterModule = Vuex.Store.prototype.registerModule
 
@@ -80,12 +76,15 @@ async function createApp(ssrContext, config = {}) {
   // Add this.$router into store actions/mutations
   store.$router = router
 
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  store.registerModule = registerModule
+
   // Create Root instance
 
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Auth App","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"Auth Fire Nuxt","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[]},
 
     store,
     router,
@@ -217,36 +216,20 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_09afed7e === 'function') {
-    await nuxt_plugin_plugin_09afed7e(app.context, inject)
+  if (typeof nuxt_plugin_axios_41c1817c === 'function') {
+    await nuxt_plugin_axios_41c1817c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_c4744860 === 'function') {
-    await nuxt_plugin_bootstrapvue_c4744860(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_7a18ce66 === 'function') {
+    await nuxt_plugin_bootstrapvue_7a18ce66(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_a79da2be === 'function') {
-    await nuxt_plugin_axios_a79da2be(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_firebase_34d6f55a === 'function') {
-    await nuxt_plugin_firebase_34d6f55a(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_auth_7f7561ce === 'function') {
-    await nuxt_plugin_auth_7f7561ce(app.context, inject)
+  if (typeof nuxt_plugin_vuelidate_4be431c8 === 'function') {
+    await nuxt_plugin_vuelidate_4be431c8(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_clearLogoutTimer_8f42669a === 'function') {
     await nuxt_plugin_clearLogoutTimer_8f42669a(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_bootstrapvue_7a18ce66 === 'function') {
-    await nuxt_plugin_bootstrapvue_7a18ce66(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_vuelidate_4be431c8 === 'function') {
-    await nuxt_plugin_vuelidate_4be431c8(app.context, inject)
   }
 
   // Lock enablePreview in context

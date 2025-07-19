@@ -202,7 +202,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {}
+      env: {"FIREBASE_API_KEY":"AIzaSyCucAv9Zd-VuYiocgyBJHJqbX3wMTAwIwI","FIREBASE_AUTH_DOMAIN":"authvue-1b7c1.firebaseapp.com","FIREBASE_PROJECT_ID":"authvue-1b7c1","FIREBASE_STORAGE_BUCKET":"authvue-1b7c1.appspot.com","FIREBASE_MESSAGING_SENDER_ID":"178551451540","FIREBASE_APP_ID":"1:178551451540:web:dda15e9927cbc19c802981","FIREBASE_MEASUREMENT_ID":"G-B7WXEQ9WCX","AUTH_LOGOUT_TIMEOUT_MS":"30000","API_BASE_URL":"http://localhost:3001/api","SERVER_PORT":"3001","FRONTEND_URL":"http://localhost:3000","NODE_ENV":"development","FIREBASE_SIGNUP_URL":"https://identitytoolkit.googleapis.com/v1/accounts:signUp","FIREBASE_SIGNIN_URL":"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword","EMAIL_VERIFICATION_URL":"http://localhost:3000/verify-email","PASSWORD_RESET_URL":"http://localhost:3000/reset-password"}
     }
     // Only set once
 

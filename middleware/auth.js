@@ -1,22 +1,24 @@
-// middleware/auth.js
 export default function ({ store, redirect, route }) {
-  // If the route is protected and user isn't authenticated
-  if (route.meta.protected && !store.state.auth.user) {
-    return redirect('/')
+  // Ensure auth is initialized
+  if (!store.state.auth.authInitialized) {
+    return store.dispatch('auth/initAuth').then(() => {
+      checkAuth(store, redirect, route)
+    })
+  } else {
+    checkAuth(store, redirect, route)
   }
-  
-  // If user is authenticated but trying to access auth pages
-  if ((route.path === '/login' || route.path === '/signup') && store.state.auth.user) {
+}
+
+function checkAuth(store, redirect, route) {
+  const isAuthenticated = store.getters['auth/isAuthenticated']
+
+  // Redirect authenticated users away from signin and signup pages
+  if (isAuthenticated && (route.path === '/signin' || route.path === '/signup')) {
     return redirect('/dashboard')
   }
 
-  // If user is not authenticated and trying to access the dashboard
-  if (route.path === '/dashboard' && !store.state.auth.user) {
-    return redirect('/')
-  }
-
-  // If user is not authenticated and trying to access the index page
-  if (route.path === '/' && !store.state.auth.user) {
-    return redirect('/login')
+  // Redirect unauthenticated users away from protected routes
+  if (!isAuthenticated && route.meta.protected) {
+    return redirect('/signin')
   }
 }
