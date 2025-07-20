@@ -35,7 +35,7 @@ A modern Nuxt.js application featuring Firebase authentication integration, with
 bash
 
 Clone the repository
-git clone https://github.com/yourusername/auth-fire-vue-nuxt.git
+git clone https://github.com/Mariaa3035/auth-fire-vue-nuxt.git
 
 Install dependencies
 npm install
@@ -54,7 +54,6 @@ Generate static project
 npm run generate
 
 ## Project Structure
-
 auth-fire-vue-nuxt/
 ├── components/          # Reusable Vue components
 │   ├── AuthGuard.vue   # Authentication wrapper

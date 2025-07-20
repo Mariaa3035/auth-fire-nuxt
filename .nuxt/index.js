@@ -13,7 +13,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_41c1817c from 'nuxt_plugin_axios_41c1817c' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_axios_092615f6 from 'nuxt_plugin_axios_092615f6' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_bootstrapvue_7a18ce66 from 'nuxt_plugin_bootstrapvue_7a18ce66' // Source: ..\\plugins\\bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ..\\plugins\\vuelidate.js (mode: 'all')
 import nuxt_plugin_clearLogoutTimer_8f42669a from 'nuxt_plugin_clearLogoutTimer_8f42669a' // Source: ..\\plugins\\clearLogoutTimer.js (mode: 'client')
@@ -216,8 +216,8 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_41c1817c === 'function') {
-    await nuxt_plugin_axios_41c1817c(app.context, inject)
+  if (typeof nuxt_plugin_axios_092615f6 === 'function') {
+    await nuxt_plugin_axios_092615f6(app.context, inject)
   }
 
   if (typeof nuxt_plugin_bootstrapvue_7a18ce66 === 'function') {
