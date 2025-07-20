@@ -8,7 +8,7 @@ export default {
     ]
   },
   target: 'static',
-  ssr: true,
+  ssr: false,
   plugins: [
     '~/plugins/bootstrap-vue.js',
     '~/plugins/vuelidate.js',
